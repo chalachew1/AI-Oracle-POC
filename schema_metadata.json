@@ -1,0 +1,26 @@
+{
+  "approved_objects": [
+    {
+      "local_demo_table": "meter_connections",
+      "oracle_view_name": "VW_METER_CONNECTIONS",
+      "description": "Read-only meter connection data for monthly meter analytics.",
+      "allowed_columns": [
+        {"name": "meter_id", "type": "TEXT", "definition": "Unique meter ID"},
+        {"name": "connection_date", "type": "DATE", "definition": "Date meter was connected"},
+        {"name": "transformer_id", "type": "TEXT", "definition": "Transformer ID"},
+        {"name": "substation_id", "type": "TEXT", "definition": "Substation ID"},
+        {"name": "status", "type": "TEXT", "definition": "Connection status"}
+      ],
+      "approved_metrics": [
+        "monthly_new_connections",
+        "meters_per_transformer",
+        "meters_per_substation"
+      ]
+    }
+  ],
+  "security_rules": [
+    "Only SELECT statements are allowed.",
+    "Only approved tables and columns may be used.",
+    "Do not generate DELETE, UPDATE, INSERT, DROP, ALTER, or CREATE."
+  ]
+}
